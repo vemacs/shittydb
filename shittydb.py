@@ -14,7 +14,7 @@ def encrypt(key):
 
 decrypt = encrypt
 
-savepath = '/dev/shm'
+savepath = '/dev/shm/'
 
 class ShittyDBDefaultSetter(object):
     """
