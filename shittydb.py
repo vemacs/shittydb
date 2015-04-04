@@ -14,6 +14,8 @@ def encrypt(key):
 
 decrypt = encrypt
 
+savepath = '/dev/shm'
+
 class ShittyDBDefaultSetter(object):
     """
     This class is responsible for setting values in a ShittyDB database, in a
@@ -35,7 +37,7 @@ class ShittyDBDefaultSetter(object):
         """
     def set(self, key, val):
         try:
-            with open(key, 'w') as f:
+            with open(savepath + key, 'w') as f:
                 f.write(val)
         except Exception, e:
             # TODO: handle exception
@@ -65,7 +67,7 @@ class ShittyDBDefaultGetter(object):
     """
     def get(self, key):
         try:
-            with open(key, 'r') as f:
+            with open(savepath + key, 'r') as f:
                 return f.read()
         except Exception, e:
             raise Exception("[E4727][CRITICAL] ACCESS ERROR DETECTED, PLEASE FORMAT YOUR COMPUTER FOR FIXING")
